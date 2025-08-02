@@ -1,16 +1,29 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import { Search, ShoppingCart, Package, TrendingUp, DollarSign, Clock, Calendar } from "lucide-react"
 import Link from "next/link"
 
+function ClientOnlyTime() {
+  const [time, setTime] = useState(new Date().toLocaleTimeString())
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setTime(new Date().toLocaleTimeString())
+    }, 1000)
+
+    return () => clearInterval(intervalId)
+  }, [])
+
+  return <span>{time}</span>
+}
+
 export default function Dashboard() {
   const [searchQuery, setSearchQuery] = useState("")
   const currentDate = new Date().toLocaleDateString()
-  const currentTime = new Date().toLocaleTimeString()
 
   const quickStats = [
     { title: "Today's Sales", value: "$1,247.50", icon: DollarSign, color: "text-green-600" },
@@ -40,7 +53,7 @@ export default function Dashboard() {
                 <Calendar className="h-4 w-4" />
                 <span>{currentDate}</span>
                 <Clock className="h-4 w-4 ml-2" />
-                <span>{currentTime}</span>
+                <ClientOnlyTime />
               </div>
             </div>
           </div>
