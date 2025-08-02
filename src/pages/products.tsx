@@ -65,11 +65,10 @@ export default function ProductsPage() {
       product.sku.toLowerCase().includes(searchQuery.toLowerCase()),
   )
 
-  const postData = async (e) => {
+  const postData = async (product: Product) => {
     try {
-      await axios
-        .post(`http://localhost:3001/products`, e)
-        .then((item) => console.log(item));
+      const response = await axios.post(`http://localhost:3001/products`, product);
+      console.log("Produk berhasil ditambahkan:", response.data);
     } catch (error) {
       console.log(error);
     }
