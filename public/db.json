@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": "1753780665442",
+      "name": "testingaku",
+      "sku": "0935",
+      "price": 20000,
+      "stock": 10,
+      "description": "9U39RU932URI3J"
+    },
+    {
+      "id": "1753795033447",
+      "name": "tetsing",
+      "sku": "002",
+      "price": 1200,
+      "stock": 100,
+      "description": ""
+    },
+    {
+      "id": "1753801210669",
+      "name": "Testing1",
+      "sku": "002",
+      "price": 20000,
+      "stock": 100,
+      "description": "wdwdwdwdwd"
+    }
+  ]
+}
